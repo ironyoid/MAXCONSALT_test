@@ -6,7 +6,7 @@
   * @date    06-07-2021
   * @brief   ITR for timer 
   ******************************************************************************
-  */ 
+  */
 
 /* Includes ------------------------------------------------------------------*/
 #include "defines.h"
@@ -20,9 +20,8 @@
   * None
   */
 /**/
-INTERRUPT_HANDLER(TIM4_UPD_OVF_TRG_IRQHandler,25)
+INTERRUPT_HANDLER(TIM4_UPD_OVF_TRG_IRQHandler, 25)
 {
   AddToQueue(); /* Timer routine */
   TIM4_ClearITPendingBit(TIM4_IT_Update);
 }
-

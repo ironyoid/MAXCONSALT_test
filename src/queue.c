@@ -6,26 +6,28 @@
   * @date    06-07-2021
   * @brief   simple queue realisation (without linked list)
   ******************************************************************************
-  */ 
+  */
 
 #include "kernel.h"
 
-struct queue_t{
+struct queue_t
+{
   void_task_t qu[QUEUE_SIZE];
   uint8_t rear, frnt;
-}queue;
+} queue;
 
-void QueueInit() 
+void QueueInit()
 {
   queue.frnt = 1;
   queue.rear = 0;
 }
 
-uint8_t QueueInsert(void_task_t x) 
+uint8_t QueueInsert(void_task_t x)
 {
-  if(queue.rear < QUEUE_SIZE - 1) {
+  if (queue.rear < QUEUE_SIZE - 1)
+  {
     queue.rear++;
-    queue.qu[queue.rear]=x;
+    queue.qu[queue.rear] = x;
     return 1;
   }
   else
@@ -34,28 +36,29 @@ uint8_t QueueInsert(void_task_t x)
   }
 }
 
-static uint8_t QueueIsEmpty() 
+static uint8_t QueueIsEmpty()
 {
-  if(queue.rear < queue.frnt)
+  if (queue.rear < queue.frnt)
   {
     return 1;
-  }    
-  else  
+  }
+  else
   {
     return 0;
   }
 }
 
-int QueueRemove(void_task_t *ret_func) 
+int QueueRemove(void_task_t *ret_func)
 {
   uint8_t i = 0;
-  if(QueueIsEmpty() == 1) 
+  if (QueueIsEmpty() == 1)
   {
     return 0;
   }
-  
+
   *ret_func = queue.qu[queue.frnt];
-  for(i = queue.frnt; i < queue.rear; i++) {
+  for (i = queue.frnt; i < queue.rear; i++)
+  {
     queue.qu[i] = queue.qu[i + 1];
   }
   queue.rear--;

@@ -6,7 +6,7 @@
   * @date    06-07-2021
   * @brief   Main routine
   ******************************************************************************
-  */ 
+  */
 #include "inc/system_functions.h"
 #include "inc/defines.h"
 #include "inc/kernel.h"
@@ -28,7 +28,7 @@ void Led_3(void)
   TOUGLE_LED_3;
 }
 
-int main (void)
+int main(void)
 {
   /* System initialisation */
   SysInit();
@@ -41,7 +41,3 @@ int main (void)
   /* Run schedule cycle */
   SchedulerRoutine();
 }
-
-
-
-
